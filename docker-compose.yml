@@ -25,6 +25,11 @@ services:
     restart: 'unless-stopped'
     networks:
       - backend
+    links:
+      - pdftohtml
+    depends_on:
+      - pdftohtml
+
   pdftohtml:
     image: pavanreddi123/pdf2htmlex
     container_name: pdftohtml
