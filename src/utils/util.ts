@@ -1,3 +1,5 @@
+import { URL } from 'url';
+
 /**
  * @method isEmpty
  * @param {String | Number | Object} value
@@ -17,3 +19,16 @@ export const isEmpty = (value: string | number | object): boolean => {
     return false;
   }
 };
+
+export const isValidUrl = s => {
+  try {
+    new URL(s);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+export function getUrlExtension(url) {
+  return url.split(/[#?]/)[0].split('.').pop().trim();
+}
